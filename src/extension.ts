@@ -38,8 +38,8 @@ function getWebviewContent(initialView: 'docs' | 'video') {
       <style>
           body, html {
               margin: 0;
-              padding: 20px;
-              height: 100%;
+              padding: 5px;
+              height: 100vh;
               color: white;
               font-family: Arial, Helvetica, sans-serif;
               background-color: #252526;
@@ -47,14 +47,17 @@ function getWebviewContent(initialView: 'docs' | 'video') {
           .container {
               display: flex;
               flex-direction: column;
-              height: 100%;
+              height: calc(100vh - 10px);
+              width: 100%;
           }
           .controls {
-              margin-bottom: 20px;
+              margin-bottom: 10px;
+              flex-shrink: 0;
+              height: 40px;
           }
           .controls input {
               padding: 8px;
-              width: 50%;
+              width: 60%;
               margin-right: 10px;
           }
           .controls button {
@@ -62,13 +65,15 @@ function getWebviewContent(initialView: 'docs' | 'video') {
               cursor: pointer;
           }
           .content-area {
-              flex-grow: 1;
+              flex: 1;
               border: 1px solid #444;
+              height: calc(100vh - 120px);
           }
           iframe, video {
               width: 100%;
               height: 100%;
               border: none;
+              display: block;
           }
           .hidden {
             display: none;
