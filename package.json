@@ -12,11 +12,17 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+  "commands": [
+    {
+      "command": "video-player.openPage",
+      "title": "Open Player/Docs"
+    }
+  ],
   "viewsContainers": {
     "activitybar": [
       {
         "id": "video-player-container",
-        "title": "Video Player",
+        "title": "Inline Player",
         "icon": "media/icon.svg"
       }
     ]
@@ -24,10 +30,22 @@
   "views": {
     "video-player-container": [
       {
-        "type": "webview",
-        "id": "video-player-view",
-        "name": "Video Player",
+        "id": "video-player-options",
+        "name": "Options",
+        "type": "tree",
         "icon": "media/icon.svg"
+      }
+    ]
+  },
+  "menus": {
+    "view/item/context": [
+      {
+        "command": "video-player.openPage",
+        "when": "view == video-player-options && viewItem == documentation"
+      },
+      {
+        "command": "video-player.openPage",
+        "when": "view == video-player-options && viewItem == video"
       }
     ]
   }
